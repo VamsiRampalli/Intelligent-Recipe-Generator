@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Intelligent Recipe Generator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="p-4">
+  <div class="container">
+    <h1 class="mb-3">Intelligent Recipe Generator</h1>
+
+    <form method="post" action="/search">
+      <div class="mb-3">
+        <label class="form-label">Your ingredients (comma separated)</label>
+        <textarea class="form-control" name="ingredients" rows="3" placeholder="e.g. tomato, pasta, garlic"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Minimum match ratio: <span id="thLabel">50%</span></label>
+        <input type="range" class="form-range" min="0" max="1" step="0.1" value="0.5" id="threshold" name="threshold"
+          oninput="thLabel.innerText = Math.round(this.value*100) + '%'">
+      </div>
+
+      <button class="btn btn-primary">Find recipes</button>
+    </form>
+
+    <hr>
+    <p>Try example: <a href="#" onclick="document.querySelector('textarea[name=ingredients]').value='pasta, tomato, garlic'">pasta, tomato, garlic</a></p>
+  </div>
+</body>
+</html>

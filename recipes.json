@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Tomato Pasta",
+    "ingredients": ["pasta", "tomato", "garlic", "olive oil", "basil"],
+    "source": "https://example.com/tomato-pasta"
+  },
+  {
+    "name": "Garlic Bread",
+    "ingredients": ["bread", "garlic", "butter", "parsley"],
+    "source": "https://example.com/garlic-bread"
+  },
+  {
+    "name": "Omelette",
+    "ingredients": ["egg", "milk", "salt", "pepper", "butter"],
+    "source": "https://example.com/omelette"
+  },
+  {
+    "name": "Tomato Soup",
+    "ingredients": ["tomato", "onion", "garlic", "vegetable stock", "cream"],
+    "source": "https://example.com/tomato-soup"
+  }
+]

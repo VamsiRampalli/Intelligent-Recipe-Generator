@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Results - Intelligent Recipe Generator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="p-4">
+  <div class="container">
+    <a href="/" class="btn btn-link">&larr; New search</a>
+    <h2 class="mb-3">Results ({{ results|length }})</h2>
+
+    {% if results %}
+      <div class="row">
+        {% for r in results %}
+        <div class="col-md-6">
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">{{ r.title or r.name }}</h5>
+              <p>Match: <strong>{{ (r.ratio * 100) | round(0) }}%</strong> ({{ r.match_count }} / {{ r.total }})</p>
+              <p><strong>Used:</strong> {{ r.matched | join(', ') or '—' }}</p>
+              <p><strong>Missing:</strong> {{ r.missing | join(', ') or '—' }}</p>
+              {% if r.source %}
+                <a href="{{ r.source }}" class="btn btn-sm btn-outline-primary" target="_blank">View recipe</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="alert alert-warning">No matches. Try lowering the match threshold or add more ingredients.</div>
+    {% endif %}
+  </div>
+</body>
+</html>
